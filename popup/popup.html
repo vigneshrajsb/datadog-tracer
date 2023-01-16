@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <div
+      id="navbar"
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+        margin-bottom: 12px;
+      "
+    >
+      <h2>DATADOG TRACER</h2>
+      <div
+        id="tip"
+        class="tooltip"
+        style="
+          right: 0%;
+          font-size: large;
+          padding: 2px;
+          margin-top: 4px;
+          margin-left: 20px;
+        "
+      >
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC9ElEQVR4nO2Zz0tUURTHP4wvQ3KRjS5SV0G0L0v/gkpm2ohEm7K/oqmJskXlNtFoUzQkrUqI+gMq/AsSVzpCOZFa6dZsY1w4Dw6X1/junTvzLOYLFx4O3+8557177/khtNFGGyGQA0aAMjAPLAHbwG9Z2/K318AtYFg4mWMQmAK+AnuOqwY8BAaycDwPPAF2PRy31y/gMXCsVc5fAX4mOPINeApcBU5LkIdk9QJngGvAM2A9gf8DuNxMxyN567bh90AB6HDUKgIfEvRm5feg6ALeWYaWgfMBtEeBFUv7rdgMgijB+QpwJJQBoBt4kRBEkC9hb5s7NA93LVszIQ5sq5z/WxDjeCJv3TZm27QKc8rud6Cn0a2z7LHnC5LganJQXc9EtZGtNGglqQuuAuJ4zF/z4I9aya7fhTxl3fNkEIDBR6XxgJTosGobsxXwfIM1cf6ip0ZR+fElbQE4YpUHwbOiAyJgQ/lzLg3ptiKY2iZrPFf+lNIQ5hXBFGZZY0L58yoNYUkRTFXpi1Oy/z8DJxvQGVL+LKYhbCmCSWa+KCsd04X5os8qufeFvv87GzB8T+mYZ18ctvLB/x/AVqAtFCqAPtctpA+xaQOzDuCs6yHW16jpYbMO4LrrNVoOlMhCBVBROjfSEIYVYb2BUiJEABGwqXRMTtgXOauSLGQYwCWfYg6ZmMVEM/rIKoAFpXHfhTggd25Mdu2oQgRQUPwd14YGGffFAivS5rmg5FpFKhhbq4o/jQfykjhiETO3ccEJ6Wur8uyCl8rupm9Tj8wq9YjDjDyajUnL5lijgrMtDGLSsvUohGgkYz4tPOdxJuqh29o2Zr1xHBjXRVdCEFXP2ynptllNcD7YcFd/iRnL0J6MPoqOGTuSJLWQoDcd8s0nYdxK7/HakAZ8QlJ+r/QTnfI8JIVZpQ5/jBahR76GTna+a0fe+lEyQL9MzNY8HDe1jSkPjnMAkJOh002p2Rels9uVZZ4/yW8laVIOxL9Z22iDfxx/AIMUjeEqOqz4AAAAAElFTkSuQmCC"
+          style="height: 18px; width: 18px"
+        />
+        <span class="tooltiptext"
+          >Click Toggle in a tab to inject Datadog synthetic headers creating an
+          APM trace</span
+        >
+      </div>
+    </div>
+    <div id="controls" class="card" style="height: 30px; align-items: center">
+      <div style="font-size: large; font-weight: bold">Toggle:</div>
+      <input type="checkbox" id="toggle" /><label for="toggle">Toggle</label>
+    </div>
+    <div id="info" class="card" style="display: none; text-align: center">
+      <h2 style="margin: 2px">Tracing Enabled &#128640;</h2>
+      <hr style="margin: 1px" />
+      <div>
+        <p style="margin: 4px">Click below to view trace</p>
+        <div>
+          <a
+            id="link"
+            href="https://app.datadoghq.com/apm/trace/"
+            target="_blank"
+            style="text-decoration: none; color: white"
+          >
+            <div
+              id="traceID"
+              style="font-weight: bold; margin: 2px; font-size: medium"
+            ></div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      id="error"
+      class="card"
+      style="color: red; display: none; text-align: center"
+    >
+      <div style="font-weight: bold">ERROR!!!</div>
+      <div id="errorMessage"></div>
+    </div>
+
+    <script src="./popup.js" type="module"></script>
+  </body>
+</html>

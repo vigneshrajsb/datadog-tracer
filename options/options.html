@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./options.css" />
+    <title>Options page</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="settings card" style="margin: 4px">
+        <div
+          id="settings"
+          style="align-items: center; margin: 4px; width: 100%"
+        >
+          <h1>Settings</h1>
+          <hr style="margin-bottom: 12px" />
+          <div style="margin: 8px">
+            <label for="input" style="font-size: large; font-weight: bold"
+              >Domain:</label
+            >
+            <input
+              type="text"
+              id="domain"
+              style="width: 60%; height: 20px"
+              required
+            />
+            <!-- TODO write note -->
+            <p>Note: lorem ipsum blah blah blah</p>
+            <div style="text-align: center">
+              <input
+                type="submit"
+                id="save"
+                class="button-submit"
+                style="margin-top: 8px; width: 40%"
+                value="Save"
+              />
+              <input
+                type="submit"
+                id="reset"
+                class="button-reset"
+                style="margin-top: 8px; width: 40%"
+                value="Reset"
+              />
+            </div>
+            <div
+              id="error"
+              style="color: red; display: none; text-align: center"
+              hidden
+            >
+              <div id="errorMessage"></div>
+            </div>
+            <div
+              id="status"
+              style="color: grey; display: none; text-align: center"
+              hidden
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="readme card" style="margin: 4px"></div>
+    </div>
+    <script src="./options.js" type="module"></script>
+  </body>
+</html>

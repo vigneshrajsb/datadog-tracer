@@ -1,0 +1,25 @@
+{
+  "name": "Datadog Tracer",
+  "description": "Create APM trace with Datadog",
+  "version": "0.1",
+  "manifest_version": 3,
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "128": "images/icon-128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "images/icon-16.png",
+      "32": "images/icon-32.png",
+      "128": "images/icon-128.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "permissions": ["activeTab", "tabGroups", "declarativeNetRequest", "storage"],
+  "host_permissions": ["https://*/*"]
+}

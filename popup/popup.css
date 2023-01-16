@@ -1,0 +1,111 @@
+html {
+  height: 225px;
+  width: 300px;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 150px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 4px;
+  border-radius: 6px;
+
+  position: absolute;
+  z-index: 1;
+
+  top: 100%;
+  left: 60%;
+  margin-left: -100px;
+
+  font-size: small;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 50px;
+  height: 25px;
+  background: grey;
+  display: block;
+  border-radius: 25px;
+  position: relative;
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 1.5px;
+  left: 1.5px;
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 22px;
+}
+
+input:checked + label {
+  background: #2a9d8f;
+}
+
+input:checked + label:after {
+  left: calc(100% - 2.5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 32px;
+}
+
+.card {
+  display: flex;
+  padding: 10px;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: lightgrey;
+  border-width: thin;
+  box-shadow: 0 4px 4px -2px lightgrey;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+a {
+  display: inline-block;
+  background-color: #2a9d8f;
+  color: #fff;
+  /* font-size: 1.5em; */
+  font-family: Courier, sans-serif;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 0.5em;
+  border-bottom: 0.25em solid #196a60;
+  -moz-transition: 0.1s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  box-shadow: 0 2px 3px #ccc;
+  position: relative;
+}
+
+a:hover {
+  background-color: #1e8c7e;
+  border-bottom-width: 0;
+  margin-top: 0.2em;
+}

@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+}
+
+.settings {
+  width: 40%;
+  /* background-color: aqua; */
+  height: max-content;
+}
+
+.readme {
+  width: 60%;
+  /* background-color: bisque; */
+  height: max-content;
+}
+
+.card {
+  display: flex;
+  padding: 10px;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: lightgrey;
+  border-width: thin;
+  box-shadow: 0 4px 4px -2px lightgrey;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.button-submit {
+  appearance: none;
+  background-color: #2a9d8f;
+  border: 1px solid #196a60;
+  border-radius: 6px;
+  box-shadow: #196a60 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-submit:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-submit:hover {
+  background-color: #2a9d8f;
+}
+
+.button-submit:focus {
+  box-shadow: #196a60 0 0 0 3px;
+  outline: none;
+}
+
+.button-submit:active {
+  background-color: #2a9d8f;
+  box-shadow: #196a60 0 1px 0 inset;
+}
+
+.button-reset {
+  appearance: none;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 6px;
+  box-shadow: grey 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  color: grey;
+}
+.button-reset:active {
+  background-color: white;
+  box-shadow: grey 0 1px 0 inset;
+}
