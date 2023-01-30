@@ -8,7 +8,7 @@ const rules = async (traceID, tabID) => {
 
   return [
     {
-      id: 1,
+      id: tabID,
       priority: 1,
       action: {
         type: chrome.declarativeNetRequest.RuleActionType.MODIFY_HEADERS,
@@ -75,7 +75,7 @@ chrome.runtime.onMessage.addListener(async function (
     chrome.action.setBadgeText({ text: "ON", tabId: tabId });
   } else {
     chrome.declarativeNetRequest.updateSessionRules({
-      removeRuleIds: await rules("", "").map((rule) => rule.id), // remove existing rules
+      removeRuleIds: [tabId], // remove existing rules
     });
 
     // save to local storage

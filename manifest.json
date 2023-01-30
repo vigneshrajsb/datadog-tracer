@@ -1,5 +1,5 @@
 {
-  "name": "Datadog Tracer",
+  "name": "Datadog APM Tracer",
   "description": "Create APM trace with Datadog",
   "version": "0.1",
   "manifest_version": 3,

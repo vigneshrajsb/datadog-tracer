@@ -27,8 +27,7 @@
               style="width: 60%; height: 20px"
               required
             />
-            <!-- TODO write note -->
-            <p>Note: lorem ipsum blah blah blah</p>
+            <p>Note: The application with the domain should be instrumented for Application Performance Monitoring (APM) </p>
             <div style="text-align: center">
               <input
                 type="submit"
@@ -60,7 +59,26 @@
           </div>
         </div>
       </div>
-      <div class="readme card" style="margin: 4px"></div>
+      <div class="readme card" style="margin: 4px">
+        <div
+        id="instructions"
+        style="align-items: center; margin: 4px; width: 100%"
+      > 
+        <h1>Instructions</h1>
+        <hr style="margin-bottom: 12px" />
+        <p>1. Instrument Datadog APM for your frontend and services. <a href="https://docs.datadoghq.com/tracing/" target="_blank">Read Datadog docs</a></p>
+        <p>2. Add your domain to <b>Settings</b> and Save</p>
+        <p>3. Navigate to your instumented web application, open extension and click <b>Toggle</b></p>
+        <p>4. The extension generates a Trace ID and injects required headers to network requests matching the domain pattern</p>
+        <br />
+        <p><i>Note: The goal of this extension is to create a Trace without thinking about retention filters for debugging purposes only.</i></p>
+
+        <br/>
+        <h1>Issues</h1>
+        <hr style="margin-bottom: 12px" />
+        <p>Please create an issue <a href="https://github.com/vigneshrajsb/datadog-tracer/issues" target="_blank">here</a> for support or questions</p>
+      </div>
+      </div>
     </div>
     <script src="./options.js" type="module"></script>
   </body>
