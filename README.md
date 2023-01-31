@@ -4,7 +4,11 @@ Chromium extension to enable and retain Datadog APM traces from a local browser 
 
 Useful when debugging end to end applications flows without wondering about the Retention filters.
 
-## Loading Extension
+## Install
+
+From [Chrome web store](https://chrome.google.com/webstore/detail/datadog-apm-tracer/jilpmibbdkjiigdofgpmclkmmehgdibb?hl=en&utm_source=google&utm_medium=cpc&utm_campaign=11014199021&device=c&u_producttype=selfservebuilder&utm_term)
+
+## Load Extension from source
 
 - Clone this repo
 - Open Chrome and navigate to `chrome://extensions/`
