@@ -86,3 +86,8 @@ chrome.runtime.onMessage.addListener(async function (
 
   return true; // have to return a promise to avoid errors
 });
+
+
+chrome.runtime.onInstalled.addListener(function () {
+  chrome.runtime.openOptionsPage();
+});

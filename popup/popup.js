@@ -18,7 +18,7 @@ toggleInput.addEventListener("click", async () => {
     // check if current tab url has domain in URL. post error to avoid confusion
     if (!tab.url.includes(domain)) {
       errorCard.style.display = "block";
-      errorMsg.innerHTML = "Tracing cannot be activated!! Domain doesn't match";
+      errorMsg.innerHTML = "Tracing cannot be activated!! The domain doesn't match with current tab.";
       toggleInput.checked = false;
       return;
     }

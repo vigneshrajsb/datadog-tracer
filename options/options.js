@@ -29,7 +29,7 @@ domainInput.addEventListener("focus", async () => {
 
 resetButton.addEventListener("click", async () => {
   try {
-    await chrome.storage.local.remove(["tracerSettings"]);
+    await chrome.storage.local.remove(["tracerSettings", "tracer"]);
     domainInput.value = "";
     setStatus("Reset successful!");
   } catch (error) {

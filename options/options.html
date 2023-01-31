@@ -66,12 +66,15 @@
       > 
         <h1>Instructions</h1>
         <hr style="margin-bottom: 12px" />
-        <p>1. Instrument Datadog APM for your frontend and services. <a href="https://docs.datadoghq.com/tracing/" target="_blank">Read Datadog docs</a></p>
-        <p>2. Add your domain to <b>Settings</b> and Save</p>
-        <p>3. Navigate to your instumented web application, open extension and click <b>Toggle</b></p>
-        <p>4. The extension generates a Trace ID and injects required headers to network requests matching the domain pattern</p>
-        <br />
-        <p><i>Note: The goal of this extension is to create a Trace without thinking about retention filters for debugging purposes only.</i></p>
+        <ol>
+          <li>Instrument Datadog APM for your frontend and services. <a href="https://docs.datadoghq.com/tracing/" target="_blank">Read Datadog docs</a></li>
+          <li>Add your domain to <b>Settings</b> and Save</li>
+          <li>Navigate to your instumented web application, open extension and click <b>Toggle</b></li>
+          <li>The extension generates a Trace ID and injects required headers to network requests matching the domain pattern. Read about synthetic headers <a href="https://docs.datadoghq.com/synthetics/apm/" target="_blank">here</a></li>
+          <li>Login to Datadog and use the generated ID or link to access trace</li>
+        </ol>
+        <br />  
+        <p><i>Note: The goal of this extension is to create a trace without thinking about retention filters(for debugging purposes only).</i></p>
 
         <br/>
         <h1>Issues</h1>
