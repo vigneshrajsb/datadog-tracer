@@ -19,3 +19,7 @@ Useful when debugging end to end applications flows without wondering about the 
 
 ## Questions
 Please create an issue
+
+
+## Credits
+- Extension icon <a href="https://www.flaticon.com/free-icons/trace" title="trace icons">Trace icons created by Bombasticon Studio - Flaticon</a>
