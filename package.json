@@ -1,17 +1,30 @@
 {
   "name": "datadog-apm-tracer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Create APM trace with Datadog",
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vigneshrajsb/datadog-tracer.git"
+  },
+  "homepage": "https://github.com/vigneshrajsb/datadog-tracer#readme",
+  "bugs": {
+    "url": "https://github.com/vigneshrajsb/datadog-tracer/issues"
+  },
+  "author": {
+    "name" : "vigneshrajsb",
+    "url" : "https://vigneshrajsb.com"
+  },
+  "license": "MIT",
   "scripts": {
     "prettier": "prettier --write .",
+    "zip": "zip -r datadog-tracer.zip * -x '*.git*' -x '*node_modules*' -x '*.DS_Store*'",
     "test": "echo \"Error: no test specified\" && exit 1"
+
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "prettier": "^2.8.3"
   }
