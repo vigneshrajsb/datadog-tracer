@@ -18,16 +18,18 @@
           <h1>Settings</h1>
           <hr style="margin-bottom: 12px" />
           <div style="margin: 8px">
-            <label for="input" style="font-size: large; font-weight: bold"
-              >Domain:</label
+            <label for="domains" style="font-size: large; font-weight: bold"
+              >Domains:</label
             >
-            <input
-              type="text"
-              id="domain"
-              style="width: 60%; height: 20px"
-              placeholder="example.com"
+            <textarea
+              id="domains"
+              style="width: 60%; height: 80px; vertical-align: top"
+              placeholder="example.com&#10;api.example.com"
               required
-            />
+            ></textarea>
+            <p style="font-size: small; color: #666; margin-top: 4px">
+              Enter one domain per line
+            </p>
             <p>
               Note: The application with the domain should be instrumented for
               Application Performance Monitoring (APM)

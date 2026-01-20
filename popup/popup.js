@@ -7,19 +7,48 @@ const errorMsg = document.getElementById("errorMessage");
 
 const toggleInput = document.getElementById("toggle");
 
+// Get domains from settings with backward compatibility
+async function getDomainsFromSettings() {
+  const savedSettings = await chrome.storage.local.get("tracerSettings");
+  const settings = savedSettings?.tracerSettings;
+
+  if (!settings) return [];
+
+  // New format: domains array
+  if (settings.domains && Array.isArray(settings.domains)) {
+    return settings.domains;
+  }
+
+  // Old format: single domain (backward compatibility)
+  if (settings.domain) {
+    return [settings.domain];
+  }
+
+  return [];
+}
+
 toggleInput.addEventListener("click", async () => {
   if (toggleInput.checked) {
-    const savedSettings = await chrome.storage.local.get("tracerSettings");
-    const domain = savedSettings?.tracerSettings?.domain;
+    const domains = await getDomainsFromSettings();
+
+    // Check if domains are configured
+    if (domains.length === 0) {
+      errorCard.style.display = "block";
+      errorMsg.innerHTML =
+        "No domains configured! Please add domains in the extension options.";
+      toggleInput.checked = false;
+      return;
+    }
 
     // get tab info
     const tab = await getCurrentTab();
 
-    // check if current tab url has domain in URL. post error to avoid confusion
-    if (!tab.url.includes(domain)) {
+    // check if current tab url matches any configured domain
+    const matchesDomain = domains.some((domain) => tab.url.includes(domain));
+    if (!matchesDomain) {
       errorCard.style.display = "block";
       errorMsg.innerHTML =
-        "Tracing cannot be activated!! The domain doesn't match with current tab.";
+        "Tracing cannot be activated!! The current tab doesn't match any configured domain.";
       toggleInput.checked = false;
       return;
     }

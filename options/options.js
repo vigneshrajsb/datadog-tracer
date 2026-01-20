@@ -1,25 +1,33 @@
-const domainInput = document.getElementById("domain");
+const domainsInput = document.getElementById("domains");
 const saveButton = document.getElementById("save");
 const resetButton = document.getElementById("reset");
 const statusMsg = document.getElementById("status");
 const error = document.getElementById("error");
 const errorMsg = document.getElementById("errorMessage");
 
-saveButton.addEventListener("click", async () => {
-  const domainUrl = domainInput.value;
+// Parse textarea input: split by newlines, trim whitespace, filter empty lines
+function parseDomainsInput(text) {
+  return text
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0);
+}
 
-  if (!domainUrl) {
-    setErrorMessage("Please enter a valid domain");
+saveButton.addEventListener("click", async () => {
+  const domains = parseDomainsInput(domainsInput.value);
+
+  if (domains.length === 0) {
+    setErrorMessage("Please enter at least one valid domain");
     return;
   }
 
   await chrome.storage.local.set({
-    tracerSettings: { domain: domainUrl },
+    tracerSettings: { domains },
   });
   setStatus("Settings saved successfully!");
 });
 
-domainInput.addEventListener("focus", async () => {
+domainsInput.addEventListener("focus", async () => {
   error.style.display = "hidden";
   errorMsg.innerHTML = "";
 
@@ -30,7 +38,7 @@ domainInput.addEventListener("focus", async () => {
 resetButton.addEventListener("click", async () => {
   try {
     await chrome.storage.local.remove(["tracerSettings", "tracer"]);
-    domainInput.value = "";
+    domainsInput.value = "";
     setStatus("Reset successful!");
   } catch (error) {
     setErrorMessage(error.message);
@@ -52,11 +60,24 @@ function setStatus(message) {
 
 const startUp = async () => {
   const savedSettings = await chrome.storage.local.get("tracerSettings");
-  const domain = savedSettings?.tracerSettings?.domain;
+  const settings = savedSettings?.tracerSettings;
 
-  if (!domain) return;
+  if (!settings) return;
 
-  domainInput.value = domain;
+  // Migration: if old single domain exists, convert to domains array
+  if (settings.domain && !settings.domains) {
+    const domains = [settings.domain];
+    await chrome.storage.local.set({
+      tracerSettings: { domains },
+    });
+    domainsInput.value = domains.join("\n");
+    setStatus("Migrated single domain to new format");
+    return;
+  }
+
+  if (settings.domains && settings.domains.length > 0) {
+    domainsInput.value = settings.domains.join("\n");
+  }
 };
 
 // STARTUP
